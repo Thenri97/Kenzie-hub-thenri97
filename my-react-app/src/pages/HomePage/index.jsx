@@ -6,7 +6,7 @@ export const HomePage = ({user}) => {
     const navigate = useNavigate();
     
     const logout = () => {
-        navigate("/login")
+        navigate("/")
         localStorage.removeItem("@TOKEN")
     }
     return (

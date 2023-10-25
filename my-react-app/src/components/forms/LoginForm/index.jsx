@@ -29,7 +29,7 @@ export const LoginForm = ({setUser}) => {
         // console.log(data);
         toast.success("Login efetuado!")
         localStorage.setItem("@TOKEN", JSON.stringify(data.token))
-        navigate("/")
+        navigate("/user")
         setUser(data.user)
     }catch (error){
         console.log(error);
