@@ -1,0 +1,44 @@
+.main__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--grey-4);
+    height: 100%;
+}
+
+.Header {
+    background-color: var(--grey-4);
+    padding: 3rem 0rem;
+
+    div {
+        padding: 0rem 0.75rem;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            width: 5rem;
+            height: 2rem;
+            border-radius: 0.25rem;
+            background-color: var(--grey-3, #212529);
+            color: var(--grey-0);
+            border: 1px solid var(--grey-3);
+            font-size: 0.59963rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.42038rem;
+        }
+    }
+}
+
+@media (min-width: 375px) {
+    .Header{
+        display: flex;
+        justify-content: center;
+        
+        
+        div{
+            width: 18.5rem;
+            padding: 0;
+        }
+    }
+}

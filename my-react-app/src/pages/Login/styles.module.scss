@@ -1,0 +1,12 @@
+.main__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--grey-4);
+    height: 100vh;
+    svg{
+        margin-top: 5.06rem;
+        margin-bottom: 1.21rem;
+    }
+}
+
