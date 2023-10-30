@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import styles from "./styles.module.scss"
 
-export const HomePage = ({user}) => {
+export const HomePage = ({user,setUser}) => {
     
     const navigate = useNavigate();
+    console.log(user);
     
     const logout = () => {
+        setUser(null)
         navigate("/")
         localStorage.removeItem("@TOKEN")
     }

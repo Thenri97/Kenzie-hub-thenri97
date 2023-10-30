@@ -53,7 +53,6 @@ const [loading, setLoading] = useState(false);
                     id="name"
                     label="name"
                     type="text"
-                    required
                     placeholder="Digite aqui seu nome"
                     {...register("name")}
                     error={errors.name}
@@ -64,7 +63,6 @@ const [loading, setLoading] = useState(false);
                     id="email"
                     label="email"
                     type="email"
-                    required
                     placeholder="Digite aqui seu email"
                     {...register("email")}
                     error={errors.email}
@@ -75,7 +73,6 @@ const [loading, setLoading] = useState(false);
                     id="password"
                     label="password"
                     type="password"
-                    required
                     placeholder="Digite aqui seu password"
                     {...register("password")}
                     error={errors.password}

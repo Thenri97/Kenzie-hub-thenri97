@@ -9,7 +9,7 @@ export const RoutesMain = () => {
 const [user,setUser] = useState(null);
     return (
         <Routes>
-            <Route path="/user" element={<HomePage user={user}/>}/>
+            <Route path="/user" element={<HomePage user={user}  setUser={setUser}/>}/>
             <Route path="/" element={<LoginPage setUser={setUser}/>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<ErrorPage />} />

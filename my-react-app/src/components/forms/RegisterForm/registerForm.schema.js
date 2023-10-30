@@ -14,8 +14,13 @@ export const registerFormSchema = z.object({
     bio: z.string().min(1, "A bio é obrigatório"),
     contact: z.string().min(11, "O Contato é obrigatório (DD + número)"),
     course_module: z.string()
-}).refine((password,passwordVerify) => password !== passwordVerify,{
+}).refine(({ password, passwordVerify }) => {
+    return password === passwordVerify;
+}, {
     message: "As senhas não correspondem.",
-    path: ["passwordVerify"],
+    path: ["passwordVerify"]
 });
+
+
+
 
