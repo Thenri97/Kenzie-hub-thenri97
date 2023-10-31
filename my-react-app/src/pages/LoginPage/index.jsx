@@ -2,7 +2,7 @@ import { LoginForm } from "../../components/forms/LoginForm"
 import styles from "./styles.module.scss"
 
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
 
     return (
         <main className={styles.main__container}>
@@ -18,7 +18,7 @@ export const LoginPage = ({ setUser }) => {
                 <path d="M91.4435 13.8117H94.1229V12.2423H94.2441C94.6205 13.0589 95.4434 13.9712 97.0256 13.9712C99.2584 13.9712 101 12.204 101 8.92497C101 5.55657 99.1818 3.88514 97.0319 3.88514C95.3924 3.88514 94.6077 4.8612 94.2441 5.65865H94.1611V0.746406H91.4435V13.8117ZM94.1037 8.91221C94.1037 7.16422 94.8438 6.0478 96.1643 6.0478C97.5104 6.0478 98.2249 7.21525 98.2249 8.91221C98.2249 10.6219 97.4976 11.8085 96.1643 11.8085C94.8565 11.8085 94.1037 10.6602 94.1037 8.91221Z" fill="#FF577F" />
             </svg>
             <section>
-                <LoginForm setUser={setUser} />
+                <LoginForm />
             </section>
         </main>
     )

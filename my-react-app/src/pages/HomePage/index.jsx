@@ -1,11 +1,12 @@
-import { useNavigate } from "react-router-dom"
-import styles from "./styles.module.scss"
+import { useNavigate } from "react-router-dom";
+import styles from "./styles.module.scss";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
-export const HomePage = ({user,setUser}) => {
-    
+export const HomePage = () => {
+    const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
-    console.log(user);
-    
+   
     const logout = () => {
         setUser(null)
         navigate("/")

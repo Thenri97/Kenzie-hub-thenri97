@@ -4,12 +4,15 @@ import { Input } from "../inputs"
 import {zodResolver} from "@hookform/resolvers/zod"
 import {useForm} from "react-hook-form"
 import { loginFormSchema } from "./loginForm.schema"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { requests } from "../../../services/requests"
 import { toast } from 'react-toastify';
+import { UserContext } from "../../../providers/UserContext"
 
 
-export const LoginForm = ({setUser}) => {
+export const LoginForm = () => {
+    const { user, setUser } = useContext(UserContext);
+
 
     const [loading, setLoading] = useState(false);
    const navigate = useNavigate();
@@ -26,7 +29,6 @@ export const LoginForm = ({setUser}) => {
     try{
         setLoading(true)
         const {data} = await requests.post("/sessions", payLoad)
-        // console.log(data);
         toast.success("Login efetuado!")
         localStorage.setItem("@TOKEN", JSON.stringify(data.token))
         navigate("/user")
@@ -42,14 +44,10 @@ export const LoginForm = ({setUser}) => {
     }
   }
 
-
-
    const submit = (payLoad) => {
     userLogin(payLoad)
    }
-
-
-
+   
     return (
         <form className={styles.Form}
         onSubmit={handleSubmit(submit)}>
