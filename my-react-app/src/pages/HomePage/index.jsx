@@ -7,11 +7,8 @@ export const HomePage = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
    
-    const logout = () => {
-        setUser(null)
-        navigate("/")
-        localStorage.removeItem("@TOKEN")
-    }
+    const {logout} = useContext(UserContext);
+    
     return (
         <>
            <header className={styles.Header}>

@@ -8,7 +8,7 @@ export const registerFormSchema = z.object({
         .regex(/[a-z]+/, "É necessário contter pelo menos uma letra minúscula")
         .regex(/[A-Z]+/, "É necessário contter pelo menos uma letra maiúscula")
         .regex(/[0-9]+/, "É necessário contter pelo menos um número")
-        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]+/, "É necessário contter pelo menos um caractere especial"),
+        .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]+/, "É necessário conter pelo menos um caractere especial"),
     passwordVerify: z.string()
         .min(8, "São necessários pelos menos oito caracteres."),
     bio: z.string().min(1, "A bio é obrigatório"),

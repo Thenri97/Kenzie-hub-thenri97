@@ -1,14 +1,18 @@
-import styles from "./styles.module.scss"
-import { useNavigate } from "react-router-dom"
-import { useForm, useFormState } from "react-hook-form"
-import { useState } from "react"
-import { Input } from "../inputs"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { registerFormSchema } from "./registerForm.schema"
-import { requests } from "../../../services/requests"
+import styles from "./styles.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useForm, useFormState } from "react-hook-form";
+import { useContext, useState } from "react";
+import { Input } from "../inputs";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerFormSchema } from "./registerForm.schema";
+import { requests } from "../../../services/requests";
 import { toast } from 'react-toastify';
+import { UserContext } from "../../../providers/UserContext";
 
 export const RegisterForm = () => {
+
+    const [loading, setLoading] = useState(false);
+    const { userRegister } = useContext(UserContext);
     const navigate = useNavigate();
 
     const { register,
@@ -18,29 +22,9 @@ export const RegisterForm = () => {
         resolver: zodResolver(registerFormSchema)
     });
 
-const [loading, setLoading] = useState(false);
-
-    const userRegister = async (payLoad) => {
-    try {   
-            setLoading(true)
-            await requests.post("/users", payLoad)
-            toast.success("cadastro realizado com sucesso!")
-            navigate("/login")
-
-        } catch (error) {
-            console.log(error);
-            if(error.response.data.message === "Email already exists"){
-                toast.error("Email já cadastrado")
-            }
-        }finally{
-            setLoading(false)
-        }
-    };
-    
     const submit = (payLoad) => {
-       userRegister(payLoad)
+        userRegister(payLoad, setLoading, toast, navigate, requests);
     };
-
     return (
         <form className={styles.form__container}
             onSubmit={handleSubmit(submit)}>

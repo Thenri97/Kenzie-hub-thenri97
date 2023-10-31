@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom"
-import { RegisterForm } from "../../components/forms/RegisterForm"
-import styles from "./styles.module.scss"
+import { useNavigate } from "react-router-dom";
+import { RegisterForm } from "../../components/forms/RegisterForm";
+import styles from "./styles.module.scss";
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
