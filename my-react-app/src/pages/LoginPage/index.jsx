@@ -7,12 +7,6 @@ import { UserContext } from "../../providers/UserContext";
 
 export const LoginPage = () => {
 
-    // // const navigate = useNavigate();
-   
-
-   
-    
-
     return (
         <main className={styles.main__container}>
             <svg xmlns="http://www.w3.org/2000/svg" width="101" height="14" viewBox="0 0 101 14" fill="none">

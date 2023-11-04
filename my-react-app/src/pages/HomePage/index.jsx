@@ -5,13 +5,7 @@ import { UserContext } from "../../providers/UserContext";
 
 export const HomePage = () => {
     const { user, setUser } = useContext(UserContext);
-    console.log(user);
-    const navigate = useNavigate();
-    // console.log(user);
-
-
     const { logout } = useContext(UserContext);
-    const { ifToken } = useContext(UserContext);
 
     return (
         <>

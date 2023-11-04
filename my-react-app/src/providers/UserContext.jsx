@@ -38,8 +38,6 @@ export const UserProvider = ({ children }) => {
         }
     }, [])
 
-
-
     //Função de Registro 
     const userRegister = async (payLoad, setLoading, toast, navigate, requests) => {
         try {
@@ -83,10 +81,6 @@ export const UserProvider = ({ children }) => {
         navigate("/")
         localStorage.removeItem("@TOKEN")
     }
-
-    //FUNÇÂO PARA RETORNAR A PÁGINA DE USUÁRIO SE O TOKEN EXISTE
-
-
 
     return (
         <UserContext.Provider value={{ user, setUser, userRegister, userLogin, logout }}>
