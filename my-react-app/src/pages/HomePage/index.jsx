@@ -5,13 +5,17 @@ import { UserContext } from "../../providers/UserContext";
 
 export const HomePage = () => {
     const { user, setUser } = useContext(UserContext);
+    console.log(user);
     const navigate = useNavigate();
-   
-    const {logout} = useContext(UserContext);
-    
+    // console.log(user);
+
+
+    const { logout } = useContext(UserContext);
+    const { ifToken } = useContext(UserContext);
+
     return (
         <>
-           <header className={styles.Header}>
+            <header className={styles.Header}>
                 <div className={styles.HeaderDiv}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="99" height="18" viewBox="0 0 99 18" fill="none">
                         <path d="M0.598877 17.1181H3.26797V12.6376L4.58095 10.636L8.03906 17.1181H11.2321L6.49185 8.4111L11.1766 1.35159H7.97742L3.43441 8.30332H3.26797V1.35159H0.598877V17.1181Z" fill="#FF577F" />
@@ -27,16 +31,21 @@ export const HomePage = () => {
                     <button onClick={() => logout()}>Sair</button>
                 </div>
                 <div className={styles.userInfo}>
-                <h1 className="titleOne">Olá, {user.name}</h1>
-               {
-                user.course_module === "FirstModule"? <p className="headline">Primeiro módulo</p>: user.course_module === "SecondModule"?
-                <p className="headline">Segundo módulo</p>: <p className="headline">Terceiro módulo</p>
-               }
-               </div>
+                    <h1 className="titleOne">Olá, {user ? user.name : null}</h1>
+                    {user ? (
+                        user.course_module === "FirstModule" ? (
+                            <p className="headline">Primeiro módulo</p>
+                        ) : user.course_module === "SecondModule" ? (
+                            <p className="headline">Segundo módulo</p>
+                        ) : (
+                            <p className="headline">Terceiro módulo</p>
+                        )
+                    ) : null}
+                </div>
             </header>
             <main className={styles.Main}>
-               <h1 className="titleOne">Que pena! Estamos em desenvolvimento :(</h1>
-               <p className="paragraph">Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+                <h1 className="titleOne">Que pena! Estamos em desenvolvimento :(</h1>
+                <p className="paragraph">Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
             </main>
         </>
     )
