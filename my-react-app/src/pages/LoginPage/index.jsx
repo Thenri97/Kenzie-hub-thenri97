@@ -1,9 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { LoginForm } from "../../components/forms/LoginForm";
 import styles from "./styles.module.scss";
-import { useContext } from "react";
-import { UserContext } from "../../providers/UserContext";
-
 
 export const LoginPage = () => {
 

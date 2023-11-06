@@ -7,6 +7,8 @@ export const HomePage = () => {
     const { user, setUser } = useContext(UserContext);
     const { logout } = useContext(UserContext);
 
+    const navigate = useNavigate();
+
     return (
         <>
             <header className={styles.Header}>

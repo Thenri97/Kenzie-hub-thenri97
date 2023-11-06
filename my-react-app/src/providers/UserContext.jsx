@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
                             Authorization: `Bearer ${token}`
                         }
                     })
-                  
+
                     console.log(data);
                     setUser(data)
                     navigate("/user")
@@ -35,6 +35,8 @@ export const UserProvider = ({ children }) => {
 
             }
             getUser()
+        }else{
+            navigate("/")
         }
     }, [])
 
@@ -61,7 +63,7 @@ export const UserProvider = ({ children }) => {
             setLoading(true)
             const { data } = await requests.post("/sessions", payLoad)
             toast.success("Login efetuado!")
-            localStorage.setItem("@TOKEN",(data.token))
+            localStorage.setItem("@TOKEN", (data.token))
             navigate("/user")
             setUser(data.user)
             console.log(data.user);
