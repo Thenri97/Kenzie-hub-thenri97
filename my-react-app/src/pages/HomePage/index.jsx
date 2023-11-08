@@ -2,13 +2,21 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
+import { TechList } from "../../components/TechList";
+import { AddTech } from "../../components/forms/ModalForms/AddTech";
+import { TechProvider } from "../../providers/TechContext";
 
 export const HomePage = () => {
     const { user, setUser } = useContext(UserContext);
     const { logout } = useContext(UserContext);
 
     const navigate = useNavigate();
+    
+    const {visible, setVisible} = useContext(UserContext);
+    const {componentVisible} = useContext(UserContext);
 
+    const {editingTech,setEditing} = useContext(UserContext);
+    
     return (
         <>
             <header className={styles.Header}>
@@ -40,8 +48,17 @@ export const HomePage = () => {
                 </div>
             </header>
             <main className={styles.Main}>
-                <h1 className="titleOne">Que pena! Estamos em desenvolvimento :(</h1>
-                <p className="paragraph">Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+                <div className={styles.Tech__container}>
+                    <h1 className="titleOne">Tecnologias</h1>
+
+                    <svg onClick={() => componentVisible()} xmlns="http://www.w3.org/2000/svg" width="34" height="32" viewBox="0 0 34 32" fill="none">
+                        <rect x="0.718506" width="32.4853" height="32" rx="4" fill="#212529" />
+                        <path d="M16.1759 21.5625H18.3093V17.3281H22.6079V15.2266H18.3093V11H16.1759V15.2266H11.8853V17.3281H16.1759V21.5625Z" fill="white" />
+                    </svg>
+                </div>
+                            {}
+                {visible === true?<AddTech/>:<TechProvider><TechList/></TechProvider>}
+             
             </main>
         </>
     )

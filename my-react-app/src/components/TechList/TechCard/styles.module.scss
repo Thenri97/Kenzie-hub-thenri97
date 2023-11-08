@@ -1,0 +1,23 @@
+.card{
+    background: var(--grey-4);
+    width: 17.1875rem;
+    height: 4.76388rem;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.tech_container{
+    display: flex;
+    justify-content: space-between;
+
+    div{
+        display: flex;
+        gap: 1rem;
+    }
+    p{
+        color: var(--grey-1);
+    }
+}

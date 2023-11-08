@@ -35,7 +35,7 @@ export const UserProvider = ({ children }) => {
 
             }
             getUser()
-        }else{
+        } else {
             navigate("/")
         }
     }, [])
@@ -84,8 +84,36 @@ export const UserProvider = ({ children }) => {
         localStorage.removeItem("@TOKEN")
     }
 
+    //Definindo o Array de Technologias
+
+    const [cards, setCards] = useState([
+        { techName: "React", level: "Avançado" },
+        { techName: "Java", level: "Iniciante" }
+    ]);
+
+    //Definindo a "visibilidade" para definir qual componente renderizar
+
+    const [visible, setVisible] = useState(false)
+
+    const componentVisible = () => {
+        setVisible(true)
+    }
+    const componentUnvisible = () => {
+        setVisible(false)
+    }
+
+    //Visibilidade EditTech
+
+    //Editing Posts 
+
+const [editingTech, setEditing] = useState(false)
+    
+
+    
+
+
     return (
-        <UserContext.Provider value={{ user, setUser, userRegister, userLogin, logout }}>
+        <UserContext.Provider value={{ cards, setCards, user, setUser, userRegister, userLogin, logout, visible, setVisible, componentVisible,componentUnvisible,editingTech,setEditing} }>
             {children}
         </UserContext.Provider>)
 }

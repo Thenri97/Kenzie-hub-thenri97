@@ -1,0 +1,21 @@
+.list{
+    height: 22rem;
+    width: 18.375rem;
+    padding: 1rem 0.6rem;
+    list-style: none;
+    background: var(--grey-3);
+    display: flex;
+    gap: 0.42rem;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    overflow-y: scroll;
+}
+
+@media (min-width: 425px) {
+    .list{
+        width: 100%;
+        li{
+            width: 100%;
+        }
+    }
+ }
